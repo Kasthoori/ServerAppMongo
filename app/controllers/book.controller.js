@@ -103,15 +103,55 @@ exports.update = (req, res) => {
 //Delete a particular book
 exports.delete = (req, res) => {
 
+    const id = req.params.id;
     
+    Book.findByIdAndRemove(id)
+        .then(data => {
+            if(!data){
+                res.status(400).send({
+                    message: `Cannot delete Book with id=${id}`
+                });
+            }else{
+                res.send({
+                    message: "Book deleted successfully"
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Could not delete book with id=" + id
+            });
+        });
 };
 
 //Delete all books
 exports.deleteAll = (req, res) => {
 
+    Book.deleteMany({})
+        .then(data => {
+            res.send({
+                message: `${data.deletedCount} Books were deleted successfully`
+            })
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Error occured during deletion"
+            });
+        });
+
 };
 
 //Find published book
 exports.findAllPublished = (req, res) => {
-
+    Book.find({published: true})
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || 'Some errors happened'
+            })
+        });
 };

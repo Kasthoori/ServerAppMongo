@@ -35,6 +35,9 @@ app.get('/', (req, res) => {
     res.json({message: "Welcome to Express Server Application"});
 });
 
+//Set router 
+require("./app/routes/book.routes")(app);
+
 //Set port
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
