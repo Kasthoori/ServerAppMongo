@@ -1,0 +1,22 @@
+{
+  "name": "serverappmongo",
+  "version": "1.0.0",
+  "description": "Express Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kasthoori/ServerAppMongo.git"
+  },
+  "keywords": [
+    "TEST"
+  ],
+  "author": "Kasthoori",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kasthoori/ServerAppMongo/issues"
+  },
+  "homepage": "https://github.com/Kasthoori/ServerAppMongo#readme"
+}
